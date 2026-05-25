@@ -1,33 +1,55 @@
-# React + TypeScript + Vite
+# 🕊️ Baptism Photo Sharing — Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React app built for a baptism celebration. Guests visit the page, get a warm welcome, and are guided to a shared Google Photos album where they can upload their own photos and videos from the event.
 
-Currently, two official plugins are available:
+## What it does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Displays a soft, animated landing page with the baby's name, photo, and baptism date
+- Welcomes guests with a personal message
+- Walks them through 3 simple steps to share their photos
+- Has a single prominent button that opens the shared Google Photos album in a new tab — guests upload directly there
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Then open [http://localhost:5173](http://localhost:5173).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Personalising it
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Everything you need to change is at the top of `src/LandingPage.tsx`:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
+```ts
+const ALBUM_URL   = "https://photos.app.goo.gl/YOUR_SHARED_ALBUM_LINK";
+const BABY_NAME   = "Μαρία";
+const BAPTISM_DATE = "1 Ιουνίου 2026";
+const WELCOME_MESSAGE = "...";
+```
+
+To add the baby's photo, drop a file called `banner.jpg` into the `public/` folder.
+
+## Building for production
+
+```bash
+npm run build       # outputs to dist/
+npm run preview     # local preview of the production build
+```
+
+You can deploy the `dist/` folder to any static host (Netlify, Vercel, GitHub Pages, etc.).
+
+---
+
+## Future ideas — Google Photos API integration
+
+Right now guests are redirected to a shared album and upload from within Google Photos. A future version could go further:
+
+- **Direct upload from the page** — use the [Google Photos Library API](https://developers.google.com/photos/library/guides/overview) to let guests pick a file on the landing page itself and upload it straight to the album without ever leaving the site. This needs an OAuth 2.0 flow (or a backend proxy holding the credentials so the key is never exposed to the browser).
+- **Live photo wall** — poll or subscribe to the album and display a real-time mosaic of newly uploaded photos on the page, so guests can see their pictures appear during the event.
+- **Server-side upload proxy** — a small Node/Express (or serverless function) endpoint that accepts a multipart upload from the browser, authenticates with a service-account token, and forwards the file to the Google Photos API. This avoids shipping OAuth secrets to the client.
+- **QR code on printed invitations** — generate a QR code pointing to the deployed URL so guests can scan it on the day without typing anything.
       tseslint.configs.stylisticTypeChecked,
 
       // Other configs...
