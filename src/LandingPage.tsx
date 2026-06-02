@@ -3,12 +3,12 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import "./LandingPage.css";
 
 // ─── Configuration ────────────────────────────────────────────────────────────
-const BABY_NAME = "Μαρία";
-const BAPTISM_DATE = "1 Ιουνίου 2026";
+const BABY_NAME = "Μαρία Ειρήνη";
+const BAPTISM_DATE = "4 Ιουλίου 2026";
 const WELCOME_MESSAGE =
   "Είμαστε τόσο χαρούμενοι που είστε μαζί μας σε αυτή την ξεχωριστή μέρα! " +
   "Θέλουμε να μοιραστείτε μαζί μας τις όμορφες στιγμές που αποτυπώσατε. " +
-  "Κάθε φωτογραφία και βίντεο είναι ένας θησαυρός που θα κρατάμε για πάντα. 💕";
+  "Κάθε φωτογραφία και βίντεο είναι ένας θησαυρός που θα κρατάμε για πάντα.";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type FileStatus = "pending" | "uploading" | "done" | "error";
@@ -23,14 +23,10 @@ interface UploadEntry {
 
 // ─── Decorative floating elements ────────────────────────────────────────────
 const floatingItems = [
-  { id: 1, symbol: "🕊️", top: "8%",  left: "5%",  delay: 0,   duration: 4   },
-  { id: 2, symbol: "✨",  top: "15%", left: "88%", delay: 0.8, duration: 3.5 },
-  { id: 3, symbol: "🌸", top: "35%", left: "3%",  delay: 1.2, duration: 5   },
-  { id: 4, symbol: "🕊️", top: "28%", left: "92%", delay: 0.4, duration: 4.5 },
-  { id: 5, symbol: "✨",  top: "60%", left: "7%",  delay: 1.6, duration: 3.8 },
-  { id: 6, symbol: "🌸", top: "72%", left: "90%", delay: 0.6, duration: 4.2 },
-  { id: 7, symbol: "🕊️", top: "85%", left: "12%", delay: 2.0, duration: 5.2 },
-  { id: 8, symbol: "✨",  top: "90%", left: "82%", delay: 1.0, duration: 3.2 },
+  { id: 1, symbol: "✿", top: "8%",  left: "5%",  delay: 0,   duration: 4   },
+  { id: 2, symbol: "✿", top: "15%", left: "88%", delay: 0.8, duration: 3.5 },
+  { id: 3, symbol: "✿", top: "60%", left: "7%",  delay: 1.6, duration: 3.8 },
+  { id: 4, symbol: "✿", top: "72%", left: "90%", delay: 0.6, duration: 4.2 },
 ];
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -190,7 +186,7 @@ export default function LandingPage() {
               e.currentTarget.parentElement!.classList.add("lp-photo-placeholder");
             }}
           />
-          <div className="lp-photo-placeholder-content"><span>👼</span></div>
+          <div className="lp-photo-placeholder-content" />
         </motion.div>
 
         <motion.h1 className="lp-name" variants={fadeUp} initial="hidden" animate="visible" custom={0.4}>
@@ -213,13 +209,13 @@ export default function LandingPage() {
       <main className="lp-main">
         {/* Welcome card */}
         <motion.section className="lp-card" variants={fadeUp} initial="hidden" animate="visible" custom={1.0}>
-          <h2 className="lp-card-title">Καλώς ήρθατε! 🤍</h2>
+          <h2 className="lp-card-title">Καλώς ήρθατε</h2>
           <p className="lp-card-text">{WELCOME_MESSAGE}</p>
         </motion.section>
 
         {/* Upload card */}
         <motion.section className="lp-card" variants={fadeUp} initial="hidden" animate="visible" custom={1.2}>
-          <h2 className="lp-card-title">Μοιραστείτε τις φωτογραφίες σας 📸</h2>
+          <h2 className="lp-card-title">Μοιραστείτε τις φωτογραφίες σας</h2>
 
           {/* Drop zone */}
           <div
@@ -233,7 +229,7 @@ export default function LandingPage() {
             aria-label="Επιλέξτε φωτογραφίες"
             onKeyDown={(e) => e.key === "Enter" && fileInputRef.current?.click()}
           >
-            <span className="lp-dropzone-icon">{isDragging ? "🫳" : "🖼️"}</span>
+            <span className="lp-dropzone-icon">{isDragging ? "↓" : "↑"}</span>
             <p className="lp-dropzone-label">
               {isDragging ? "Αφήστε τα εδώ!" : "Σύρτε φωτογραφίες εδώ ή πατήστε για επιλογή"}
             </p>
@@ -280,10 +276,9 @@ export default function LandingPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, ease: "easeOut" as const }}
             >
-              <span className="lp-success-icon">🎉</span>
               <p>
                 <strong>Ευχαριστούμε θερμά!</strong><br />
-                {doneCount} {doneCount === 1 ? "φωτογραφία ανέβηκε" : "φωτογραφίες ανέβηκαν"} στο άλμπουμ μας. 🤍
+                {doneCount} {doneCount === 1 ? "φωτογραφία ανέβηκε" : "φωτογραφίες ανέβηκαν"} στο άλμπουμ μας.
               </p>
             </motion.div>
           )}
@@ -301,14 +296,14 @@ export default function LandingPage() {
                 {isUploading ? (
                   <><span className="lp-spinner lp-spinner--btn" aria-hidden="true" /> Ανέβασμα…</>
                 ) : (
-                  <><span aria-hidden="true">📤</span> Ανέβασμα {pendingCount} {pendingCount === 1 ? "αρχείου" : "αρχείων"}</>
+                  <>Ανέβασμα {pendingCount} {pendingCount === 1 ? "αρχείου" : "αρχείων"}</>
                 )}
               </motion.button>
             )}
 
             {errorCount > 0 && !isUploading && (
               <button className="lp-secondary-btn" onClick={retryFailed}>
-                🔄 Επανάληψη αποτυχημένων ({errorCount})
+                Επανάληψη αποτυχημένων ({errorCount})
               </button>
             )}
 
@@ -323,7 +318,7 @@ export default function LandingPage() {
 
       {/* ── Footer ── */}
       <motion.footer className="lp-footer" variants={fadeUp} initial="hidden" animate="visible" custom={1.6}>
-        <p>Με αγάπη, η οικογένεια &nbsp;🤍</p>
+        <p>Με αγάπη, η οικογένεια</p>
       </motion.footer>
     </div>
   );

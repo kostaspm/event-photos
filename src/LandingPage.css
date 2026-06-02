@@ -3,14 +3,14 @@
 /* Page wrapper */
 .lp-page {
   min-height: 100vh;
-  background: linear-gradient(160deg, #fff0f5 0%, #fce9f4 30%, #f3eafd 65%, #e8f4fd 100%);
+  background: linear-gradient(160deg, #fffdf5 0%, #fefce8 40%, #fef9c3 70%, #fffbeb 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
   position: relative;
   font-family: "Nunito", sans-serif;
-  color: #5a3e4b;
+  color: #5c4a1e;
 }
 
 /* ── Floating decorations ── */
@@ -20,7 +20,8 @@
   pointer-events: none;
   user-select: none;
   z-index: 0;
-  opacity: 0.55;
+  opacity: 0.45;
+  color: #d97706;
 }
 
 /* ── Hero section ── */
@@ -40,7 +41,7 @@
   width: 340px;
   height: 340px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(248, 187, 217, 0.55) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(253, 224, 71, 0.4) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -49,8 +50,8 @@
   height: 200px;
   border-radius: 50%;
   padding: 5px;
-  background: linear-gradient(135deg, #f9a8d4, #c084fc, #93c5fd);
-  box-shadow: 0 0 0 6px rgba(249, 168, 212, 0.35), 0 12px 40px rgba(192, 132, 252, 0.25);
+  background: linear-gradient(135deg, #fde68a, #fbbf24, #fef3c7);
+  box-shadow: 0 0 0 6px rgba(253, 224, 71, 0.3), 0 12px 40px rgba(234, 179, 8, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,11 +65,11 @@
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  background: #fce4ec;
+  background: #fefce8;
 }
 
 .lp-photo-placeholder {
-  background: linear-gradient(135deg, #fce4ec 0%, #e1bee7 100%);
+  background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
 }
 
 .lp-photo-placeholder-content {
@@ -91,7 +92,7 @@
   font-size: clamp(2.8rem, 8vw, 4.5rem);
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: #7e3a6e;
+  color: #92400e;
   text-align: center;
   line-height: 1.1;
 }
@@ -101,7 +102,7 @@
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(1rem, 3vw, 1.3rem);
   font-style: italic;
-  color: #a06080;
+  color: #a16207;
   letter-spacing: 0.06em;
   text-align: center;
 }
@@ -110,7 +111,7 @@
   margin-top: 2rem;
   width: 180px;
   height: 1.5px;
-  background: linear-gradient(90deg, transparent, #f9a8d4, #c084fc, #f9a8d4, transparent);
+  background: linear-gradient(90deg, transparent, #fde68a, #fbbf24, #fde68a, transparent);
   transform-origin: center;
 }
 
@@ -130,34 +131,34 @@
 /* ── Cards ── */
 .lp-card {
   width: 100%;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 1.8rem 2rem;
-  box-shadow: 0 4px 24px rgba(192, 132, 252, 0.12), 0 1px 4px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(249, 168, 212, 0.3);
+  box-shadow: 0 4px 24px rgba(234, 179, 8, 0.1), 0 1px 4px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(234, 179, 8, 0.25);
 }
 
 .lp-card-title {
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(1.3rem, 4vw, 1.65rem);
   font-weight: 600;
-  color: #7e3a6e;
+  color: #92400e;
   margin: 0 0 0.8rem;
 }
 
 .lp-card-text {
   font-size: 1rem;
   line-height: 1.75;
-  color: #6b4d5d;
+  color: #6b5227;
   margin: 0;
 }
 
 /* ── Drop zone ── */
 .lp-dropzone {
   margin-top: 0.4rem;
-  border: 2px dashed rgba(192, 132, 252, 0.45);
+  border: 2px dashed rgba(234, 179, 8, 0.5);
   border-radius: 16px;
   padding: 2rem 1.5rem;
   display: flex;
@@ -172,13 +173,13 @@
 
 .lp-dropzone:hover,
 .lp-dropzone:focus-visible {
-  border-color: #c084fc;
-  background: rgba(240, 220, 255, 0.3);
+  border-color: #eab308;
+  background: rgba(254, 249, 195, 0.3);
 }
 
 .lp-dropzone--active {
-  border-color: #a855f7;
-  background: rgba(233, 210, 255, 0.45);
+  border-color: #ca8a04;
+  background: rgba(254, 240, 138, 0.35);
   transform: scale(1.01);
 }
 
@@ -190,14 +191,14 @@
 .lp-dropzone-label {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #7e3a6e;
+  color: #92400e;
   text-align: center;
   margin: 0;
 }
 
 .lp-dropzone-hint {
   font-size: 0.78rem;
-  color: #a08898;
+  color: #a16207;
   margin: 0;
 }
 
@@ -223,13 +224,13 @@
   padding: 0.55rem 0.8rem;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(192, 132, 252, 0.2);
+  border: 1px solid rgba(234, 179, 8, 0.2);
   transition: background 0.2s;
 }
 
 .lp-file-item--done    { background: rgba(220, 252, 231, 0.6); border-color: rgba(74, 222, 128, 0.35); }
 .lp-file-item--error   { background: rgba(255, 228, 230, 0.6); border-color: rgba(252, 165, 165, 0.4); }
-.lp-file-item--uploading { background: rgba(237, 233, 254, 0.6); }
+.lp-file-item--uploading { background: rgba(254, 252, 232, 0.6); }
 
 .lp-file-thumb {
   width: 38px;
@@ -244,13 +245,13 @@
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
-  background: rgba(192, 132, 252, 0.15);
+  background: rgba(234, 179, 8, 0.12);
 }
 
 .lp-file-name {
   flex: 1;
   font-size: 0.88rem;
-  color: #5a3e4b;
+  color: #5c4a1e;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -287,15 +288,15 @@
 
 .lp-badge--done    { background: #4ade80; color: #fff; }
 .lp-badge--error   { background: #f43f5e; color: #fff; }
-.lp-badge--pending { background: rgba(192, 132, 252, 0.25); color: #a855f7; font-size: 1.1rem; }
+.lp-badge--pending { background: rgba(234, 179, 8, 0.2); color: #ca8a04; font-size: 1.1rem; }
 
 /* ── Spinner ── */
 .lp-spinner {
   display: inline-block;
   width: 18px;
   height: 18px;
-  border: 2.5px solid rgba(192, 132, 252, 0.3);
-  border-top-color: #a855f7;
+  border: 2.5px solid rgba(234, 179, 8, 0.3);
+  border-top-color: #eab308;
   border-radius: 50%;
   animation: lp-spin 0.7s linear infinite;
   flex-shrink: 0;
@@ -315,18 +316,10 @@
 /* ── Success banner ── */
 .lp-success {
   margin-top: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
   padding: 1rem 1.2rem;
   border-radius: 14px;
   background: linear-gradient(135deg, rgba(240, 253, 244, 0.9), rgba(220, 252, 231, 0.9));
   border: 1px solid rgba(74, 222, 128, 0.4);
-}
-
-.lp-success-icon {
-  font-size: 2rem;
-  flex-shrink: 0;
 }
 
 .lp-success p {
@@ -352,7 +345,7 @@
   gap: 0.6rem;
   padding: 0.9rem 2rem;
   border-radius: 50px;
-  background: linear-gradient(135deg, #f472b6, #a855f7);
+  background: linear-gradient(135deg, #fbbf24, #d97706);
   color: #fff;
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
@@ -360,12 +353,12 @@
   letter-spacing: 0.02em;
   border: none;
   cursor: pointer;
-  box-shadow: 0 6px 28px rgba(168, 85, 247, 0.38), 0 2px 8px rgba(244, 114, 182, 0.3);
+  box-shadow: 0 6px 28px rgba(217, 119, 6, 0.35), 0 2px 8px rgba(251, 191, 36, 0.25);
   transition: box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 .lp-cta:hover:not(:disabled) {
-  box-shadow: 0 10px 36px rgba(168, 85, 247, 0.48), 0 4px 12px rgba(244, 114, 182, 0.4);
+  box-shadow: 0 10px 36px rgba(217, 119, 6, 0.45), 0 4px 12px rgba(251, 191, 36, 0.3);
 }
 
 .lp-cta:disabled {
@@ -381,8 +374,8 @@
   padding: 0.65rem 1.2rem;
   border-radius: 50px;
   background: rgba(255, 255, 255, 0.7);
-  border: 1.5px solid rgba(192, 132, 252, 0.45);
-  color: #7e3a6e;
+  border: 1.5px solid rgba(234, 179, 8, 0.45);
+  color: #92400e;
   font-family: "Nunito", sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
@@ -391,8 +384,8 @@
 }
 
 .lp-secondary-btn:hover {
-  background: rgba(240, 220, 255, 0.5);
-  border-color: #c084fc;
+  background: rgba(254, 249, 195, 0.5);
+  border-color: #eab308;
 }
 
 /* ── Footer ── */
@@ -402,7 +395,7 @@
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
   font-size: 1.05rem;
-  color: #a06080;
+  color: #a16207;
   position: relative;
   z-index: 1;
 }
