@@ -178,7 +178,7 @@ export default function LandingPage() {
 
         <motion.div className="lp-photo-ring" variants={scaleIn} initial="hidden" animate="visible" custom={0.1}>
           <img
-            src="/banner.jpg"
+            src="/banner.jpeg"
             alt={`Φωτογραφία της ${BABY_NAME}`}
             className="lp-photo"
             onError={(e) => {
@@ -318,7 +318,7 @@ export default function LandingPage() {
 
       {/* ── Footer ── */}
       <motion.footer className="lp-footer" variants={fadeUp} initial="hidden" animate="visible" custom={1.6}>
-        <p>Με αγάπη, η οικογένεια</p>
+        <p>Με αγάπη, Δήμητρα - Θάνος</p>
       </motion.footer>
     </div>
   );
