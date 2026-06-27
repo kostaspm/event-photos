@@ -23,9 +23,9 @@ interface UploadEntry {
 
 // ─── Decorative floating elements ────────────────────────────────────────────
 const floatingItems = [
-  { id: 1, symbol: "✿", top: "8%",  left: "5%",  delay: 0,   duration: 4   },
+  { id: 1, symbol: "✿", top: "8%", left: "5%", delay: 0, duration: 4 },
   { id: 2, symbol: "✿", top: "15%", left: "88%", delay: 0.8, duration: 3.5 },
-  { id: 3, symbol: "✿", top: "60%", left: "7%",  delay: 1.6, duration: 3.8 },
+  { id: 3, symbol: "✿", top: "60%", left: "7%", delay: 1.6, duration: 3.8 },
   { id: 4, symbol: "✿", top: "72%", left: "90%", delay: 0.6, duration: 4.2 },
 ];
 
@@ -51,14 +51,14 @@ const scaleIn = {
 // ─── Status icon helper ───────────────────────────────────────────────────────
 function StatusIcon({ status }: { status: FileStatus }) {
   if (status === "uploading") return <span className="lp-spinner" aria-label="Ανέβασμα…" />;
-  if (status === "done")      return <span className="lp-badge lp-badge--done"  aria-label="Ανέβηκε">✓</span>;
-  if (status === "error")     return <span className="lp-badge lp-badge--error" aria-label="Σφάλμα">✕</span>;
-  return                             <span className="lp-badge lp-badge--pending" aria-label="Αναμονή">·</span>;
+  if (status === "done") return <span className="lp-badge lp-badge--done" aria-label="Ανέβηκε">✓</span>;
+  if (status === "error") return <span className="lp-badge lp-badge--error" aria-label="Σφάλμα">✕</span>;
+  return <span className="lp-badge lp-badge--pending" aria-label="Αναμονή">·</span>;
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function LandingPage() {
-  const [entries, setEntries]       = useState<UploadEntry[]>([]);
+  const [entries, setEntries] = useState<UploadEntry[]>([]);
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -85,6 +85,14 @@ export default function LandingPage() {
         thumbUrl: file.type.startsWith("image/") ? URL.createObjectURL(file) : undefined,
       })),
     ]);
+  }, []);
+
+  const removeEntry = useCallback((id: string) => {
+    setEntries((prev) => {
+      const entry = prev.find((e) => e.id === id);
+      if (entry?.thumbUrl) URL.revokeObjectURL(entry.thumbUrl);
+      return prev.filter((e) => e.id !== id);
+    });
   }, []);
 
   const handleFileInput = useCallback(
@@ -152,9 +160,9 @@ export default function LandingPage() {
   };
 
   const pendingCount = entries.filter((e) => e.status === "pending").length;
-  const doneCount    = entries.filter((e) => e.status === "done").length;
-  const errorCount   = entries.filter((e) => e.status === "error").length;
-  const allDone      = entries.length > 0 && pendingCount === 0 && !isUploading && errorCount === 0;
+  const doneCount = entries.filter((e) => e.status === "done").length;
+  const errorCount = entries.filter((e) => e.status === "error").length;
+  const allDone = entries.length > 0 && pendingCount === 0 && !isUploading && errorCount === 0;
 
   return (
     <div className="lp-page">
@@ -263,6 +271,15 @@ export default function LandingPage() {
                       <span className="lp-file-error">{entry.errorMsg}</span>
                     )}
                   </span>
+                  {entry.status !== "uploading" && (
+                    <button
+                      className="lp-file-remove"
+                      onClick={() => removeEntry(entry.id)}
+                      aria-label={`Αφαίρεση ${entry.file.name}`}
+                    >
+                      ✕
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
