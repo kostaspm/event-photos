@@ -186,7 +186,7 @@ export default function LandingPage() {
 
         <motion.div className="lp-photo-ring" variants={scaleIn} initial="hidden" animate="visible" custom={0.1}>
           <img
-            src="/banner.jpeg"
+            src="/baby.jpg"
             alt={`Φωτογραφία της ${BABY_NAME}`}
             className="lp-photo"
             onError={(e) => {
