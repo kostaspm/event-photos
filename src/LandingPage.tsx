@@ -5,6 +5,7 @@ import "./LandingPage.css";
 // ─── Configuration ────────────────────────────────────────────────────────────
 const BABY_NAME = "Μαρία Ειρήνη";
 const BAPTISM_DATE = "4 Ιουλίου 2026";
+const GOOGLE_DRIVE_URL = "https://drive.google.com/drive/folders/13z3R6ixXPvXIhaCYwUKhaZB5hxOu8JR_";
 const WELCOME_MESSAGE =
   "Είμαστε τόσο χαρούμενοι που είστε μαζί μας σε αυτή την ξεχωριστή μέρα! " +
   "Θέλουμε να μοιραστείτε μαζί μας τις όμορφες στιγμές που αποτυπώσατε. " +
@@ -329,6 +330,26 @@ export default function LandingPage() {
                 + Προσθήκη περισσότερων
               </button>
             )}
+          </div>
+        </motion.section>
+
+        {/* Google Drive fallback card */}
+        <motion.section className="lp-card lp-card--alt" variants={fadeUp} initial="hidden" animate="visible" custom={1.4}>
+          <h2 className="lp-card-title">Εναλλακτικά μέσω Google Drive</h2>
+          <p className="lp-card-text">
+            Αν αντιμετωπίζετε πρόβλημα με την παραπάνω φόρμα, μπορείτε να ανεβάσετε τις φωτογραφίες σας απευθείας στον κοινόχρηστο φάκελο μας στο Google Drive.
+          </p>
+          <div className="lp-actions">
+            <motion.a
+              href={GOOGLE_DRIVE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lp-cta lp-cta--drive"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Άνοιγμα Google Drive
+            </motion.a>
           </div>
         </motion.section>
       </main>
